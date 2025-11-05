@@ -17,7 +17,6 @@
             --block-light-background: linear-gradient(to right, #2579ba 0%, #0089f2 26%, #214db2 50%, #010023 51%, #0d0e19 100%);
             --block-light-border: 5px solid; 
         }
-
         main {
             width: 100vw;
             height: 100vh;
@@ -422,6 +421,15 @@
             padding-left: 5px;
             padding-right: 5px;
         }
+        @media (prefers-color-scheme: dark) {
+            body, #main {
+                color: #fff;
+                background-color: #333;
+            }
+            #page-region, #page-address, #admin-email {
+                color: #333;
+            }
+        }
     </style>
 </head>
 <body>
@@ -518,4 +526,5 @@
     </script>
 </body>
 </html>
+
 
