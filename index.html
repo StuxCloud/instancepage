@@ -14,7 +14,7 @@
             --block-background: #555;
             --block-border: 1px solid #000;
             --block-shadow: 0 0 0 2px rgba(255, 255, 255, 0.2) inset;
-            --block-light-background: linear-gradient(to right, #2579ba 0%, #0089f2 26%, #214db2 50%, #010023 51%, #0d0e19 100%);
+            --block-light-background: linear-gradient(to right, #006400 0%, #00ac00 26%, #006400 50%, #010023 51%, #0d0e19 100%);
             --block-light-border: 5px solid; 
         }
         main {
@@ -22,6 +22,7 @@
             height: 100vh;
             min-height: 450px;
             background: #fff;
+			color: #333;
             display: flex;
             flex-direction: column;
             justify-content: center;
@@ -29,7 +30,7 @@
         }
         main #logo {
             display: flex;
-            height: 200px;
+            height: 120px;
         }
         main #wrap {
             width: 300px;
@@ -412,11 +413,17 @@
                 top: 7px;
                 left: 5px; 
             } 
-        }
+		}
+		
+		#logo-seperator {
+			border: 5px solid;
+			border-image-slice: 1;
+			border-image-source: linear-gradient(to bottom, #006400 0%, #00ac00 50%, #006400 100%);
+		}
 
         #page-region, #page-address, #admin-email {
             text-transform: uppercase;
-            background: linear-gradient(to right, #2579ba 0%, #0089f2 50%, #214db2 100%);
+            background: linear-gradient(to right, #006400 0%, #00ac00 50%, #006400 100%);
             color: white;
             padding-left: 5px;
             padding-right: 5px;
@@ -436,6 +443,8 @@
     <main>
         <div id="logo">
             <img src="https://media.stux.cloud/global/logo.png">
+			<div id="logo-seperator"></div>
+			<img src="https://stuxedo.com/logo.png">
         </div>
         <div class="text">
             <h1>Hi I'm</h1>
