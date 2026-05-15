@@ -1,13 +1,19 @@
 <html>
+
 <head>
     <title>Stux.Cloud</title>
     <meta name="description" content="Instance Hosted by Stux.Cloud">
     <meta content='width=device-width, initial-scale=1.0' name='viewport'>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css">
     <link rel="icon" type="image/png" href="https://media.stux.cloud/global/icon.png" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Exo+2:wght@400;500;700;800&family=Barlow:wght@300;400;500&family=Inter:wght@300;400;500&display=swap"
+        rel="stylesheet">
     <style>
         * {
-            box-sizing: border-box; 
+            box-sizing: border-box;
         }
 
         :root {
@@ -15,55 +21,100 @@
             --block-border: 1px solid #000;
             --block-shadow: 0 0 0 2px rgba(255, 255, 255, 0.2) inset;
             --block-light-background: linear-gradient(to right, #006400 0%, #00ac00 26%, #006400 50%, #010023 51%, #0d0e19 100%);
-            --block-light-border: 5px solid; 
+            --block-light-border: 5px solid;
         }
+
+        body {
+            background-color: #e8ffe6;
+            font-family: 'Inter', sans-serif;
+        }
+
         main {
             width: 100%;
             height: 100%;
             min-height: 450px;
-            background: #e8ffe6;
-			color: #333;
+            background: transparent;
+            color: #333;
             display: flex;
             flex-direction: column;
             justify-content: center;
             align-items: center;
+            position: relative;
+            z-index: 1;
         }
+
+        main .logo-wrap {
+            display: inline-flex;
+            flex-direction: column;
+            align-items: flex-end;
+            padding-bottom: 60px;
+        }
+
         main #logo {
             display: flex;
             height: 80px;
         }
+
+        main .sclogo-wrap {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        main #bytext {
+            color: #00ac00;
+            font-weight: bold;
+            font-size: 20px;
+            margin-bottom: 14px;
+            margin-left: 12px;
+            text-transform: uppercase;
+        }
+
+        main #sclogo {
+            height: 50px;
+            padding-right: 10px;
+        }
+
         main #wrap {
             width: 300px;
             height: 260px;
             display: flex;
             justify-content: center;
             align-items: flex-end;
-            position: relative; 
+            position: relative;
         }
+
         main #wrap .line {
             position: absolute;
             left: 0;
-            top: 33%;
-            width: 100%; 
+            top: 30%;
+            width: 100%;
         }
+
         main #wrap .line.line-1 {
-            animation: anim-line1 5s 0s ease forwards; 
+            animation: anim-line1 5s 0s ease forwards;
         }
+
         main #wrap .line.line-1 .ball {
-            animation-delay: 0; 
+            animation-delay: 0;
         }
+
         main #wrap .line.line-2 {
-            animation: anim-line2 5s 1.2s ease forwards; 
+            animation: anim-line2 5s 1.2s ease forwards;
         }
+
         main #wrap .line.line-2 .ball {
-            animation-delay: 1.2s; 
+            animation-delay: 1.2s;
         }
+
         main #wrap .line.line-3 {
-            animation: anim-line3 5s 2.4s ease forwards; 
+            animation: anim-line3 5s 2.4s ease forwards;
         }
+
         main #wrap .line.line-3 .ball {
-            animation-delay: 2.4s; 
+            animation-delay: 2.4s;
         }
+
         main #wrap .ball {
             height: 40px;
             width: 40px;
@@ -76,60 +127,71 @@
             font-weight: bold;
             font-family: 'Source Code Pro', monospace;
             z-index: 2;
-            animation: anim-ball 5s ease forwards; 
+            animation: anim-ball 5s ease forwards;
         }
+
         main #wrap .hand {
             position: absolute;
             top: 50%;
             width: 100%;
-            transform-origin: 50% 0; 
+            transform-origin: 50% 0;
         }
+
         main #wrap .hand.hand-left {
             left: 6px;
-            animation: anim-hand-left 5s 0s ease forwards; 
+            animation: anim-hand-left 5s 0s ease forwards;
         }
+
         main #wrap .hand .hand-part {
             height: 2px;
             width: 30px;
             background: #000;
-            position: absolute; 
+            position: absolute;
         }
+
         main #wrap .hand .hand-part.part-bottom {
             top: -10px;
             left: 0;
             height: 20px;
             border-radius: 7px;
             background: #ccc;
-            border-bottom: 4px solid #000; 
+            border-bottom: 4px solid #000;
         }
+
         main #wrap .hand .hand-part.part-middle {
             left: 26px;
             top: -10px;
-            transform: rotate(-40deg); 
+            transform: rotate(-40deg);
         }
+
         main #wrap .hand .hand-part.part-top {
             left: 45px;
             top: -32px;
-            transform: rotate(-60deg); 
+            transform: rotate(-60deg);
         }
+
         main #wrap .hand.hand-right {
             right: 6px;
-            animation: anim-hand-left 5s 0.5s ease forwards; 
+            animation: anim-hand-left 5s 0.5s ease forwards;
         }
+
         main #wrap .hand.hand-right .part-bottom {
             left: auto;
-            right: 0; 
+            right: 0;
         }
+
         main #wrap .hand.hand-right .part-middle {
             left: auto;
             right: 26px;
             transform: rotate(40deg);
         }
+
         main #wrap .hand.hand-right .part-top {
             left: auto;
             right: 45px;
-            transform: rotate(60deg); 
+            transform: rotate(60deg);
         }
+
         main #server {
             width: 150px;
             height: 250px;
@@ -139,8 +201,9 @@
             border: 3px solid #1C1000;
             padding-bottom: 2%;
             background: #1C1000;
-            position: relative; 
+            position: relative;
         }
+
         main #server .eye {
             position: absolute;
             top: -12px;
@@ -149,8 +212,9 @@
             border: 1px solid #000;
             box-shadow: 0 0 0 2px #ccc;
             background: #fff;
-            border-radius: 50%; 
+            border-radius: 50%;
         }
+
         main #server .eye span {
             display: block;
             width: 50%;
@@ -161,16 +225,19 @@
             position: absolute;
             left: 0;
             top: 1px;
-            animation: anim-eyes 8s ease forwards; 
+            animation: anim-eyes 8s ease forwards;
         }
+
         main #server .eye.eye-left {
-            left: 30px; 
-			background-color: #fff !important;
+            left: 30px;
+            background-color: #fff !important;
         }
+
         main #server .eye.eye-right {
-            right: 30px; 
-			background-color: #fff !important;
+            right: 30px;
+            background-color: #fff !important;
         }
+
         main #server .block {
             border: var(--block-border);
             height: 11%;
@@ -178,14 +245,16 @@
             justify-content: center;
             align-items: center;
             box-shadow: var(--block-shadow);
-            background: var(--block-background); 
+            background: var(--block-background);
         }
+
         main #server .block .light {
             width: calc(100% - 4px);
             height: 12px;
             border-bottom: var(--block-light-border);
-            background: var(--block-light-background); 
+            background: var(--block-light-background);
         }
+
         main #server #bottom-block {
             height: 30%;
             border: var(--block-border);
@@ -195,8 +264,9 @@
             background: var(--block-background);
             box-shadow: var(--block-shadow);
             overflow: hidden;
-            position: relative; 
+            position: relative;
         }
+
         main #server #bottom-block #bottom-light {
             width: 2vw;
             height: 2vw;
@@ -206,257 +276,556 @@
             background: #fff;
             border: 2px solid #ccc;
             box-shadow: var(--block-shadow);
-            z-index: 2; 
+            z-index: 2;
         }
+
         main #server #bottom-block .bottom-line {
             width: calc(100% - 4px);
             height: 3px;
             background: #fff;
             position: absolute;
-            border-bottom: 2px solid #ccc; 
+            border-bottom: 2px solid #ccc;
         }
+
         main .text {
             padding: 10px;
             min-width: 320px;
-            text-align: center; 
+            text-align: center;
         }
+
         main .text h1 {
-            font-family: 'Source Code Pro', monospace;
+            font-family: 'Stuxedo Tale', 'Exo 2', sans-serif;
             font-size: 16px;
-            font-weight: bold;
-            margin: 1vw 0; 
+            font-weight: 700;
+            letter-spacing: -0.01em;
+            margin: 14px 0;
         }
 
-        @keyframes anim-ball {
-            20% {
-                transform: rotate(180deg); 
-            }
-            40% {
-                transform: rotate(0deg); 
-            }
-            60% {
-                transform: rotate(180deg); 
-            }
-            80% {
-                transform: rotate(0deg); 
-            }
-            100% {
-                transform: rotate(-90deg); 
-            } 
-        }
-
-        @keyframes anim-line1 {
-            20% {
-                transform: rotate(180deg); 
-            }
-            40% {
-                transform: rotate(0deg); 
-            }
-            60% {
-                transform: rotate(180deg); 
-            }
-            80% {
-                transform: rotate(0deg); 
-            }
-            100% {
-                transform: rotate(90deg) translateY(40px); 
-            } 
-        }
-
-        @keyframes anim-line2 {
-            20% {
-                transform: rotate(180deg); 
-            }
-            40% {
-                transform: rotate(0deg); 
-            }
-            60% {
-                transform: rotate(180deg); 
-            }
-            80% {
-                transform: rotate(0deg); 
-            }
-            100% {
-                transform: rotate(90deg) translateY(0px); 
-            } 
-        }
-
-        @keyframes anim-line3 {
-            20% {
-                transform: rotate(180deg); 
-            }
-            40% {
-                transform: rotate(0deg); 
-            }
-            60% {
-                transform: rotate(180deg); 
-            }
-            80% {
-                transform: rotate(0deg); 
-            }
-            100% {
-                transform: rotate(90deg) translateY(-40px); 
-            } 
-        }
-
-        @keyframes anim-line4 {
-            20% {
-                transform: rotate(180deg); }
-            40% {
-                transform: rotate(0deg); }
-            60% {
-                transform: rotate(180deg); }
-            80% {
-                transform: rotate(0deg); }
-            100% {
-                transform: rotate(90deg) translateY(-60px); 
-            } 
-        }
-
-        @keyframes anim-hand-left {
-            10% {
-                transform: rotate(3deg); 
-            }
-            15% {
-                transform: rotate(0deg); 
-            }
-            25% {
-                transform: rotate(3deg); 
-            }
-            30% {
-                transform: rotate(0deg); 
-            }
-            40% {
-                transform: rotate(3deg); 
-            }
-            45% {
-                transform: rotate(0deg); 
-            }
-            50% {
-                transform: rotate(3deg); 
-            }
-            55% {
-                transform: rotate(0deg); 
-            }
-            65% {
-                transform: rotate(3deg); 
-            }
-            70% {
-                transform: rotate(0deg); 
-            }
-            80% {
-                transform: rotate(3deg);
-            }
-            85% {
-                transform: rotate(0deg); 
-            }
-            95% {
-                transform: rotate(3deg); 
-            }
-            100% {
-                transform: rotate(0deg); 
-            } 
-        }
-
-        @keyframes anim-hand-right {
-            10% {
-                transform: rotate(-3deg); 
-            }
-            15% {
-                transform: rotate(0deg); 
-            }
-            25% {
-                transform: rotate(-3deg); 
-            }
-            30% {
-                transform: rotate(0deg); 
-            }
-            40% {
-                transform: rotate(-3deg); 
-            }
-            45% {
-                transform: rotate(0deg); 
-            }
-            50% {
-                transform: rotate(-3deg); 
-            }
-            55% {
-                transform: rotate(0deg); 
-            }
-            65% {
-                transform: rotate(-3deg); 
-            }
-            70% {
-                transform: rotate(0deg);
-            }
-            80% {
-                transform: rotate(-3deg); 
-            }
-            85% {
-                transform: rotate(0deg); 
-            }
-            100% {
-                transform: rotate(0deg); 
-            } 
-        }
-
-        @keyframes anim-eyes {
-            25% {
-                left: 10px; 
-            }
-            50% {
-                left: 0; 
-            }
-            75% {
-                top: 0;
-                left: 10px; 
-            }
-            100% {
-                top: 7px;
-                left: 5px; 
-            } 
-		}
-		
-		#logo-seperator {
-			border: 3px solid;
-			border-image-slice: 1;
-			border-image-source: linear-gradient(to bottom, #006400 0%, #00ac00 50%, #006400 100%);
-			margin-left: 6px;
-		}
-
-        #page-region, #page-address, #admin-email {
+        #page-region,
+        #page-address,
+        #admin-email {
             text-transform: uppercase;
             background: linear-gradient(to right, #006400 0%, #00ac00 50%, #006400 100%);
             color: white;
             padding-left: 5px;
             padding-right: 5px;
+            padding-bottom: 2px;
+            padding-top: 1px;
         }
+
+        @keyframes anim-ball {
+            20% {
+                transform: rotate(180deg);
+            }
+
+            40% {
+                transform: rotate(0deg);
+            }
+
+            60% {
+                transform: rotate(180deg);
+            }
+
+            80% {
+                transform: rotate(0deg);
+            }
+
+            100% {
+                transform: rotate(-90deg);
+            }
+        }
+
+        @keyframes anim-line1 {
+            20% {
+                transform: rotate(180deg);
+            }
+
+            40% {
+                transform: rotate(0deg);
+            }
+
+            60% {
+                transform: rotate(180deg);
+            }
+
+            80% {
+                transform: rotate(0deg);
+            }
+
+            100% {
+                transform: rotate(90deg) translateY(40px);
+            }
+        }
+
+        @keyframes anim-line2 {
+            20% {
+                transform: rotate(180deg);
+            }
+
+            40% {
+                transform: rotate(0deg);
+            }
+
+            60% {
+                transform: rotate(180deg);
+            }
+
+            80% {
+                transform: rotate(0deg);
+            }
+
+            100% {
+                transform: rotate(90deg) translateY(0px);
+            }
+        }
+
+        @keyframes anim-line3 {
+            20% {
+                transform: rotate(180deg);
+            }
+
+            40% {
+                transform: rotate(0deg);
+            }
+
+            60% {
+                transform: rotate(180deg);
+            }
+
+            80% {
+                transform: rotate(0deg);
+            }
+
+            100% {
+                transform: rotate(90deg) translateY(-40px);
+            }
+        }
+
+        @keyframes anim-hand-left {
+            10% {
+                transform: rotate(3deg);
+            }
+
+            15% {
+                transform: rotate(0deg);
+            }
+
+            25% {
+                transform: rotate(3deg);
+            }
+
+            30% {
+                transform: rotate(0deg);
+            }
+
+            40% {
+                transform: rotate(3deg);
+            }
+
+            45% {
+                transform: rotate(0deg);
+            }
+
+            50% {
+                transform: rotate(3deg);
+            }
+
+            55% {
+                transform: rotate(0deg);
+            }
+
+            65% {
+                transform: rotate(3deg);
+            }
+
+            70% {
+                transform: rotate(0deg);
+            }
+
+            80% {
+                transform: rotate(3deg);
+            }
+
+            85% {
+                transform: rotate(0deg);
+            }
+
+            95% {
+                transform: rotate(3deg);
+            }
+
+            100% {
+                transform: rotate(0deg);
+            }
+        }
+
+        @keyframes anim-hand-right {
+            10% {
+                transform: rotate(-3deg);
+            }
+
+            15% {
+                transform: rotate(0deg);
+            }
+
+            25% {
+                transform: rotate(-3deg);
+            }
+
+            30% {
+                transform: rotate(0deg);
+            }
+
+            40% {
+                transform: rotate(-3deg);
+            }
+
+            45% {
+                transform: rotate(0deg);
+            }
+
+            50% {
+                transform: rotate(-3deg);
+            }
+
+            55% {
+                transform: rotate(0deg);
+            }
+
+            65% {
+                transform: rotate(-3deg);
+            }
+
+            70% {
+                transform: rotate(0deg);
+            }
+
+            80% {
+                transform: rotate(-3deg);
+            }
+
+            85% {
+                transform: rotate(0deg);
+            }
+
+            100% {
+                transform: rotate(0deg);
+            }
+        }
+
+        @keyframes anim-eyes {
+            25% {
+                left: 10px;
+            }
+
+            50% {
+                left: 0;
+            }
+
+            75% {
+                top: 0;
+                left: 10px;
+            }
+
+            100% {
+                top: 7px;
+                left: 5px;
+            }
+        }
+
         @media (prefers-color-scheme: dark) {
-            body, main {
-                color: #fff;
-                background-color: #051e03;;
+            body {
+                background-color: #051e03;
             }
-            #page-region, #page-address, #admin-email {
+
+            body,
+            main {
                 color: #fff;
             }
-			main #wrap .ball {
-			    background: #fff;
-			    color: #000;
-			}
+
+            #page-region,
+            #page-address,
+            #admin-email {
+                color: #fff;
+            }
+
+            main #wrap .ball {
+                background: #fff;
+                color: #000;
+            }
+        }
+
+        /* ── CSS-only falling leaves (TinyMCE-safe, no JS/canvas) ── */
+        .leaves {
+            position: fixed;
+            inset: 0;
+            z-index: 0;
+            pointer-events: none;
+            overflow: hidden;
+        }
+
+        .lf {
+            position: absolute;
+            top: -30px;
+            width: var(--sz, 14px);
+            height: calc(var(--sz, 14px) * 1.65);
+            animation-timing-function: linear;
+            animation-iteration-count: infinite;
+        }
+
+        .lf::before {
+            content: '';
+            display: block;
+            width: 100%;
+            height: 100%;
+            border-radius: 50% 5% 50% 5%;
+            transform: rotate(45deg);
+        }
+
+        /* dark mode colours */
+        .lf {
+            opacity: var(--op-d, 0.12);
+        }
+
+        .lf::before {
+            background: var(--cd, #00ac00);
+        }
+
+        /* light mode colours */
+        @media (prefers-color-scheme: light) {
+            .lf {
+                opacity: var(--op-l, 0.18);
+            }
+
+            .lf::before {
+                background: var(--cl, #006400);
+            }
+        }
+
+        /* three sway variants */
+        .lf-a {
+            animation-name: lf-fall-a;
+        }
+
+        .lf-b {
+            animation-name: lf-fall-b;
+        }
+
+        .lf-c {
+            animation-name: lf-fall-c;
+        }
+
+        @keyframes lf-fall-a {
+            0% {
+                transform: translate(0, -30px) rotate(0deg);
+            }
+
+            20% {
+                transform: translate(35px, 20vh) rotate(80deg);
+            }
+
+            40% {
+                transform: translate(-15px, 40vh) rotate(155deg);
+            }
+
+            60% {
+                transform: translate(28px, 60vh) rotate(230deg);
+            }
+
+            80% {
+                transform: translate(-12px, 80vh) rotate(305deg);
+            }
+
+            100% {
+                transform: translate(5px, 110vh) rotate(360deg);
+            }
+        }
+
+        @keyframes lf-fall-b {
+            0% {
+                transform: translate(0, -30px) rotate(15deg);
+            }
+
+            20% {
+                transform: translate(-28px, 20vh) rotate(88deg);
+            }
+
+            40% {
+                transform: translate(22px, 40vh) rotate(163deg);
+            }
+
+            60% {
+                transform: translate(-32px, 60vh) rotate(238deg);
+            }
+
+            80% {
+                transform: translate(18px, 80vh) rotate(313deg);
+            }
+
+            100% {
+                transform: translate(-8px, 110vh) rotate(390deg);
+            }
+        }
+
+        @keyframes lf-fall-c {
+            0% {
+                transform: translate(0, -30px) rotate(-10deg);
+            }
+
+            20% {
+                transform: translate(18px, 20vh) rotate(60deg);
+            }
+
+            40% {
+                transform: translate(-38px, 40vh) rotate(130deg);
+            }
+
+            60% {
+                transform: translate(14px, 60vh) rotate(205deg);
+            }
+
+            80% {
+                transform: translate(-22px, 80vh) rotate(275deg);
+            }
+
+            100% {
+                transform: translate(10px, 110vh) rotate(345deg);
+            }
+        }
+
+        /* ── Light/dark toggle ── */
+        #theme-toggle {
+            position: fixed;
+            top: 14px;
+            right: 14px;
+            z-index: 100;
+            background: rgba(0, 172, 0, 0.12);
+            border: 1px solid rgba(0, 172, 0, 0.35);
+            border-radius: 50%;
+            width: 38px;
+            height: 38px;
+            font-size: 17px;
+            line-height: 38px;
+            text-align: center;
+            cursor: pointer;
+            padding: 0;
+            transition: background 0.2s, border-color 0.2s;
+        }
+
+        #theme-toggle:hover {
+            background: rgba(0, 172, 0, 0.22);
+        }
+
+        /* Class-based overrides (set by JS) */
+        body.theme-dark {
+            background-color: #051e03 !important;
+            color: #fff !important;
+        }
+
+        body.theme-dark main {
+            background: transparent !important;
+            color: #fff !important;
+        }
+
+        body.theme-dark main #wrap .ball {
+            background: #fff;
+            color: #000;
+        }
+
+        body.theme-light {
+            background-color: #e8ffe6 !important;
+            color: #333 !important;
+        }
+
+        body.theme-light main {
+            background: transparent !important;
+            color: #333 !important;
+        }
+
+        body.theme-light main #wrap .ball {
+            background: #000;
+            color: #fff;
+        }
     </style>
 </head>
+
 <body>
+    <button id="theme-toggle" title="Toggle light/dark mode" aria-label="Toggle light/dark mode">☀</button>
+    <div class="leaves" contenteditable="false" data-mce-bogus="1">
+        <span class="lf lf-a"
+            style="left:42%;animation-duration:10.2s;animation-delay:-0.7s;--sz:10px;--op-d:0.09;--op-l:0.2;--cd:#007800;--cl:#00ac00">&#8203;</span>
+        <span class="lf lf-b"
+            style="left:8%;animation-duration:8.7s;animation-delay:-1.3s;--sz:11px;--op-d:0.13;--op-l:0.13;--cd:#00ac00;--cl:#00ac00">&#8203;</span>
+        <span class="lf lf-c"
+            style="left:55%;animation-duration:11.5s;animation-delay:-13.2s;--sz:13px;--op-d:0.16;--op-l:0.2;--cd:#00ac00;--cl:#00ac00">&#8203;</span>
+        <span class="lf lf-a"
+            style="left:75%;animation-duration:14.8s;animation-delay:-8.4s;--sz:10px;--op-d:0.15;--op-l:0.14;--cd:#00c800;--cl:#007a00">&#8203;</span>
+        <span class="lf lf-b"
+            style="left:70%;animation-duration:9.5s;animation-delay:-12.4s;--sz:20px;--op-d:0.1;--op-l:0.2;--cd:#00b400;--cl:#007a00">&#8203;</span>
+        <span class="lf lf-c"
+            style="left:48%;animation-duration:12.7s;animation-delay:-12.6s;--sz:19px;--op-d:0.09;--op-l:0.15;--cd:#00b400;--cl:#00ac00">&#8203;</span>
+        <span class="lf lf-a"
+            style="left:55%;animation-duration:10.7s;animation-delay:-3.1s;--sz:17px;--op-d:0.12;--op-l:0.15;--cd:#009900;--cl:#005c00">&#8203;</span>
+        <span class="lf lf-b"
+            style="left:32%;animation-duration:9.4s;animation-delay:-12.9s;--sz:17px;--op-d:0.19;--op-l:0.22;--cd:#007800;--cl:#00ac00">&#8203;</span>
+        <span class="lf lf-c"
+            style="left:10%;animation-duration:10.3s;animation-delay:-12.3s;--sz:22px;--op-d:0.12;--op-l:0.25;--cd:#00c800;--cl:#006400">&#8203;</span>
+        <span class="lf lf-a"
+            style="left:86%;animation-duration:11.5s;animation-delay:-12.9s;--sz:22px;--op-d:0.19;--op-l:0.16;--cd:#00b400;--cl:#009000">&#8203;</span>
+        <span class="lf lf-b"
+            style="left:77%;animation-duration:13.4s;animation-delay:-7.0s;--sz:11px;--op-d:0.18;--op-l:0.25;--cd:#00c800;--cl:#005c00">&#8203;</span>
+        <span class="lf lf-c"
+            style="left:86%;animation-duration:12.8s;animation-delay:-13.1s;--sz:14px;--op-d:0.16;--op-l:0.26;--cd:#00c800;--cl:#009000">&#8203;</span>
+        <span class="lf lf-a"
+            style="left:92%;animation-duration:12.3s;animation-delay:-8.6s;--sz:10px;--op-d:0.19;--op-l:0.17;--cd:#006400;--cl:#006400">&#8203;</span>
+        <span class="lf lf-b"
+            style="left:64%;animation-duration:13.1s;animation-delay:-13.2s;--sz:12px;--op-d:0.17;--op-l:0.18;--cd:#00c800;--cl:#006400">&#8203;</span>
+        <span class="lf lf-c"
+            style="left:22%;animation-duration:11.4s;animation-delay:-7.7s;--sz:12px;--op-d:0.18;--op-l:0.24;--cd:#007800;--cl:#005c00">&#8203;</span>
+        <span class="lf lf-a"
+            style="left:54%;animation-duration:12.5s;animation-delay:-0.2s;--sz:16px;--op-d:0.19;--op-l:0.14;--cd:#009900;--cl:#007a00">&#8203;</span>
+        <span class="lf lf-b"
+            style="left:30%;animation-duration:7.1s;animation-delay:-4.8s;--sz:19px;--op-d:0.1;--op-l:0.16;--cd:#009900;--cl:#004d00">&#8203;</span>
+        <span class="lf lf-c"
+            style="left:69%;animation-duration:11.5s;animation-delay:-8.8s;--sz:12px;--op-d:0.16;--op-l:0.19;--cd:#006400;--cl:#005c00">&#8203;</span>
+        <span class="lf lf-a"
+            style="left:87%;animation-duration:10.7s;animation-delay:-3.6s;--sz:22px;--op-d:0.19;--op-l:0.22;--cd:#006400;--cl:#004d00">&#8203;</span>
+        <span class="lf lf-b"
+            style="left:51%;animation-duration:7.8s;animation-delay:-8.4s;--sz:20px;--op-d:0.13;--op-l:0.15;--cd:#009900;--cl:#004d00">&#8203;</span>
+        <span class="lf lf-c"
+            style="left:21%;animation-duration:11.8s;animation-delay:-12.5s;--sz:11px;--op-d:0.08;--op-l:0.14;--cd:#00ac00;--cl:#009000">&#8203;</span>
+        <span class="lf lf-a"
+            style="left:79%;animation-duration:14.0s;animation-delay:-13.6s;--sz:19px;--op-d:0.13;--op-l:0.21;--cd:#007800;--cl:#00ac00">&#8203;</span>
+        <span class="lf lf-b"
+            style="left:47%;animation-duration:7.9s;animation-delay:-7.4s;--sz:17px;--op-d:0.2;--op-l:0.19;--cd:#00c800;--cl:#009000">&#8203;</span>
+        <span class="lf lf-c"
+            style="left:11%;animation-duration:13.0s;animation-delay:-12.0s;--sz:21px;--op-d:0.11;--op-l:0.24;--cd:#009900;--cl:#00ac00">&#8203;</span>
+        <span class="lf lf-a"
+            style="left:3%;animation-duration:14.6s;animation-delay:-11.1s;--sz:15px;--op-d:0.1;--op-l:0.2;--cd:#00ac00;--cl:#00ac00">&#8203;</span>
+        <span class="lf lf-b"
+            style="left:39%;animation-duration:13.9s;animation-delay:-0.3s;--sz:21px;--op-d:0.18;--op-l:0.19;--cd:#009900;--cl:#009000">&#8203;</span>
+        <span class="lf lf-c"
+            style="left:29%;animation-duration:13.2s;animation-delay:-6.5s;--sz:15px;--op-d:0.16;--op-l:0.21;--cd:#009900;--cl:#007a00">&#8203;</span>
+        <span class="lf lf-a"
+            style="left:52%;animation-duration:8.8s;animation-delay:-3.6s;--sz:18px;--op-d:0.14;--op-l:0.22;--cd:#00ac00;--cl:#009000">&#8203;</span>
+        <span class="lf lf-b"
+            style="left:61%;animation-duration:12.5s;animation-delay:-10.4s;--sz:15px;--op-d:0.13;--op-l:0.25;--cd:#007800;--cl:#009000">&#8203;</span>
+        <span class="lf lf-c"
+            style="left:11%;animation-duration:8.8s;animation-delay:-10.9s;--sz:13px;--op-d:0.12;--op-l:0.19;--cd:#006400;--cl:#006400">&#8203;</span>
+    </div>
     <main>
-        <div id="logo">
-            <img src="https://media.stux.cloud/global/logo.png">
-			<div id="logo-seperator"></div>
-			<img src="https://global.media.stuxedo.com/logo.png" style="height: 70px; padding-top: 12px;">
+        <div class="logo-wrap">
+            <img id="logo" src="https://global.media.stuxedo.com/logo.png" alt="Stuxedo" title="Stuxedo"
+                style="height:60px;">
+            <div class="sclogo-wrap">
+                <span id="bytext">by</span>
+                <img id="sclogo" src="https://media.stux.cloud/global/logo.png" alt="Stux.Cloud" title="Stux.Cloud">
+            </div>
         </div>
         <div class="text">
             <h1>Hi I'm</h1>
             <div style="padding-bottom: 40px;"></div>
         </div>
-        
         <div id="wrap">
             <div class="hand hand-left">
                 <span class='hand-part part-top'></span>
@@ -477,9 +846,6 @@
             <div class='line line-3'>
                 <div class="ball">K</div>
             </div>
-            <!--<div class='line line-4'>
-                <div class="ball">k</div>
-            </div>-->
             <div id="server">
                 <div class="eye eye-left"><span></span></div>
                 <div class="eye eye-right"><span></span></div>
@@ -487,24 +853,23 @@
                     <div class="light"></div>
                 </div>
                 <div class="block">
-                                <div class="light"></div>
+                    <div class="light"></div>
                 </div>
                 <div class="block">
-                                <div class="light"></div>
+                    <div class="light"></div>
                 </div>
                 <div class="block">
-                                <div class="light"></div>
+                    <div class="light"></div>
                 </div>
                 <div class="block">
-                                <div class="light"></div>
+                    <div class="light"></div>
                 </div>
                 <div id="bottom-block">
                     <div class="bottom-line"></div>
                     <div id="bottom-light"></div>
                 </div>
-            </div>    
+            </div>
         </div>
-        
         <div class="text">
             <h1>I exist throughout the entire Stux.Cloud.</h1>
             <h1>Looks like you found one of my servers.</h1>
@@ -516,32 +881,40 @@
         </div>
     </main>
     <script>
-        <!--var $pageaddress = window.location.href.replace(/https?:\/\//i, "")-->
-        if(parent !== window) {
+        (function () {
+            var btn = document.getElementById('theme-toggle');
+            var prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+            var stored = localStorage.getItem('sc-theme');
+            var isDark = stored ? stored === 'dark' : prefersDark;
+
+            function apply(dark) {
+                document.body.classList.toggle('theme-dark', dark);
+                document.body.classList.toggle('theme-light', !dark);
+                btn.textContent = dark ? '☀' : '☾';
+                btn.title = dark ? 'Switch to light mode' : 'Switch to dark mode';
+            }
+
+            apply(isDark);
+
+            btn.addEventListener('click', function () {
+                isDark = !isDark;
+                localStorage.setItem('sc-theme', isDark ? 'dark' : 'light');
+                apply(isDark);
+            });
+        })();
+    </script>
+    <script>
+        if (parent !== window) {
             var $pageaddress = new URL(document.referrer).hostname;
-            //$pageaddress = "test1.servers.uk.stux.cloud";
-            //$pageaddress = "instancepage.stux.cloud";
-            //$pageaddress = "stux.cloud";
             var $pageregion = "unknown";
-            if($pageaddress != "") {
+            if ($pageaddress != "") {
                 const words = $pageaddress.split(".");
                 var word = words[words.length - 3];
-                if(word != undefined) {
-                    $pageregion = word;
-                    //document.title = $pageaddress;
-                }
-                /*for (let i = 0; i < words.length; i++) {
-                    words[i] = words[i][0].toUpperCase() + words[i].substr(1);
-                }*/
-                //$pageaddress = words.join(".");
-                document.getElementById('page-region').innerHTML = $pageregion;
+                if (word != undefined) { $pageregion = word; }
                 document.getElementById('page-address').innerHTML = $pageaddress;
             }
         }
     </script>
 </body>
+
 </html>
-
-
-
-
