@@ -1,15 +1,16 @@
-<html>
+<!DOCTYPE html>
+<html lang="en">
 
 <head>
-    <title>Stuxedo by Stux.Cloud</title>
-    <meta name="description" content="Powered by Stuxedo by Stux.Cloud">
-    <meta content='width=device-width, initial-scale=1.0' name='viewport'>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css">
-    <link rel="icon" type="image/png" href="https://media.stux.cloud/global/icon.png" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="A Stux.Cloud Instance - Powered by Stuxedo">
+    <title>A Stux.Cloud Instance - Powered by Stuxedo</title>
+    <link rel="icon" type="image/png" href="https://media.stux.cloud/global/icon.png">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
-        href="https://fonts.googleapis.com/css2?family=Exo+2:wght@400;500;700;800&family=Barlow:wght@300;400;500&family=Inter:wght@300;400;500&display=swap"
+        href="https://fonts.googleapis.com/css2?family=Exo+2:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400&family=Barlow:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Inter:wght@300;400;500&display=swap"
         rel="stylesheet">
     <style>
         * {
@@ -62,7 +63,7 @@
         }
 
         main #bytext {
-            color: #00ac00;
+            color: var(--accent);
             font-weight: bold;
             font-size: 20px;
             margin-bottom: 14px;
@@ -304,13 +305,8 @@
         #page-region,
         #page-address,
         #admin-email {
-            text-transform: uppercase;
-            background: linear-gradient(to right, #006400 0%, #00ac00 50%, #006400 100%);
-            color: white;
-            padding-left: 5px;
-            padding-right: 5px;
-            padding-bottom: 2px;
-            padding-top: 1px;
+            color: var(--accent);
+            font-weight: 500;
         }
 
         @keyframes anim-ball {
@@ -546,7 +542,8 @@
             #page-region,
             #page-address,
             #admin-email {
-                color: #fff;
+                color: var(--accent);
+                font-weight: 500;
             }
 
             main #wrap .ball {
@@ -699,8 +696,8 @@
             top: 14px;
             right: 14px;
             z-index: 100;
-            background: rgba(0, 172, 0, 0.12);
-            border: 1px solid rgba(0, 172, 0, 0.35);
+            background: var(--accent-bg);
+            border: 1px solid var(--accent-border-strong);
             border-radius: 50%;
             width: 38px;
             height: 38px;
@@ -713,7 +710,7 @@
         }
 
         #theme-toggle:hover {
-            background: rgba(0, 172, 0, 0.22);
+            background: var(--accent-hover);
         }
 
         /* Class-based overrides (set by JS) */
@@ -746,11 +743,453 @@
             background: #000;
             color: #fff;
         }
+
+
+        /* ── CSS variables ── */
+        :root {
+            --bg: #051e03;
+            --bg-card: rgba(255, 255, 255, 0.04);
+            --border: rgba(255, 255, 255, 0.07);
+            --accent: #00ac00;
+            --accent-gradient: linear-gradient(90deg, #006400, #00ac00);
+            --accent-dim: rgba(0, 172, 0, 0.13);
+            --accent-bg: rgba(0, 172, 0, 0.12);
+            --accent-bg-hover: rgba(0, 172, 0, 0.18);
+            --accent-border-strong: rgba(0, 172, 0, 0.35);
+            --accent-hover: rgba(0, 172, 0, 0.22);
+            --accent-border-hover: rgba(0, 172, 0, 0.55);
+            --text-1: #eef2ee;
+            --text-2: rgba(238, 242, 238, 0.55);
+            --text-3: rgba(238, 242, 238, 0.35);
+        }
+
+        body {
+            background-color: #051e03;
+            font-family: 'Inter', sans-serif;
+        }
+
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --bg: #051e03;
+                --bg-card: rgba(255, 255, 255, 0.04);
+                --border: rgba(255, 255, 255, 0.07);
+                --accent: #00ac00;
+                --accent-gradient: linear-gradient(90deg, #006400, #00ac00);
+                --accent-dim: rgba(0, 172, 0, 0.13);
+                --accent-bg: rgba(0, 172, 0, 0.12);
+                --accent-bg-hover: rgba(0, 172, 0, 0.18);
+                --accent-border-strong: rgba(0, 172, 0, 0.35);
+                --accent-hover: rgba(0, 172, 0, 0.22);
+                --accent-border-hover: rgba(0, 172, 0, 0.55);
+                --text-1: #eef2ee;
+                --text-2: rgba(238, 242, 238, 0.55);
+                --text-3: rgba(238, 242, 238, 0.35);
+            }
+
+            body {
+                background-color: #051e03;
+                color: #eef2ee;
+            }
+        }
+
+        @media (prefers-color-scheme: light) {
+            :root {
+                --bg: #e8ffe6;
+                --bg-card: rgba(0, 0, 0, 0.04);
+                --border: rgba(0, 100, 0, 0.15);
+                --accent: #006400;
+                --accent-gradient: linear-gradient(90deg, #006400, #00ac00);
+                --accent-dim: rgba(0, 100, 0, 0.08);
+                --accent-bg: rgba(0, 100, 0, 0.07);
+                --accent-bg-hover: rgba(0, 100, 0, 0.11);
+                --accent-border-strong: rgba(0, 100, 0, 0.28);
+                --accent-hover: rgba(0, 100, 0, 0.13);
+                --accent-border-hover: rgba(0, 100, 0, 0.45);
+                --text-1: #1a1a1a;
+                --text-2: rgba(0, 0, 0, 0.55);
+                --text-3: rgba(0, 0, 0, 0.35);
+            }
+
+            body {
+                background-color: #e8ffe6;
+                color: #1a1a1a;
+            }
+        }
+
+        :root.theme-dark {
+            --bg: #051e03;
+            --bg-card: rgba(255, 255, 255, 0.04);
+            --border: rgba(255, 255, 255, 0.07);
+            --accent: #00ac00;
+            --accent-gradient: linear-gradient(90deg, #006400, #00ac00);
+            --accent-dim: rgba(0, 172, 0, 0.13);
+            --accent-bg: rgba(0, 172, 0, 0.12);
+            --accent-bg-hover: rgba(0, 172, 0, 0.18);
+            --accent-border-strong: rgba(0, 172, 0, 0.35);
+            --accent-hover: rgba(0, 172, 0, 0.22);
+            --accent-border-hover: rgba(0, 172, 0, 0.55);
+            --text-1: #eef2ee;
+            --text-2: rgba(238, 242, 238, 0.55);
+            --text-3: rgba(238, 242, 238, 0.35);
+        }
+
+        :root.theme-light {
+            --bg: #e8ffe6;
+            --bg-card: rgba(0, 0, 0, 0.04);
+            --border: rgba(0, 100, 0, 0.15);
+            --accent: #006400;
+            --accent-gradient: linear-gradient(90deg, #006400, #00ac00);
+            --accent-dim: rgba(0, 100, 0, 0.08);
+            --accent-bg: rgba(0, 100, 0, 0.07);
+            --accent-bg-hover: rgba(0, 100, 0, 0.11);
+            --accent-border-strong: rgba(0, 100, 0, 0.28);
+            --accent-hover: rgba(0, 100, 0, 0.13);
+            --accent-border-hover: rgba(0, 100, 0, 0.45);
+            --text-1: #1a1a1a;
+            --text-2: rgba(0, 0, 0, 0.55);
+            --text-3: rgba(0, 0, 0, 0.35);
+        }
+
+        :root.theme-dark body {
+            background-color: #051e03 !important;
+            color: #eef2ee !important;
+        }
+
+        :root.theme-light body {
+            background-color: #e8ffe6 !important;
+            color: #1a1a1a !important;
+        }
+
+        /* ── Layout ── */
+        .wrapper {
+            position: relative;
+            z-index: 1;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            padding: 2rem 1.5rem;
+            max-width: 580px;
+            width: 100%;
+        }
+
+        .logo {
+            margin-bottom: 2.75rem;
+        }
+
+        .tagline {
+            font-family: 'StuxGroup Tale', 'Barlow', sans-serif;
+            font-size: 13px;
+            font-weight: 500;
+            color: var(--accent);
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            margin: 6px 0 0;
+        }
+
+        .accent-bar {
+            width: 44px;
+            height: 3px;
+            border-radius: 2px;
+            background: var(--accent-gradient);
+            margin: 0 auto 2.75rem;
+        }
+
+        h1 {
+            font-family: 'Stuxedo Tale', 'Exo 2', sans-serif;
+            font-size: clamp(2.1rem, 5.5vw, 3.3rem);
+            font-weight: 800;
+            line-height: 1.1;
+            letter-spacing: -0.03em;
+            color: var(--text-1);
+            margin-bottom: 2rem;
+        }
+
+        h1 em {
+            font-style: normal;
+            color: var(--accent);
+        }
+
+        .sub {
+            font-family: 'StuxGroup Tale', 'Barlow', sans-serif;
+            font-size: clamp(0.95rem, 2.5vw, 1.05rem);
+            font-weight: 300;
+            color: var(--text-2);
+            line-height: 1.7;
+            text-align: center;
+        }
+
+        /* ── Card ── */
+        .card {
+            background: var(--bg-card);
+            border: 1px solid var(--accent-bg-hover);
+            border-radius: 16px;
+            padding: 32px 36px;
+            max-width: 560px;
+            width: 100%;
+            margin-bottom: 4rem;
+        }
+
+        .card {
+            padding: 1.75rem 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .card-label {
+            font-family: 'Inter', sans-serif;
+            font-size: 0.78rem;
+            font-weight: 500;
+            color: var(--text-3);
+            letter-spacing: 0.06em;
+            text-transform: uppercase;
+            text-align: left;
+            margin-bottom: 1.25rem;
+        }
+
+        .info-row {
+            display: flex;
+            align-items: flex-start;
+            gap: 14px;
+            text-align: left;
+        }
+
+        .info-text {
+            display: flex;
+            flex-direction: column;
+            gap: 3px;
+            flex: 1;
+        }
+
+        .info-text strong { color: var(--text-1); }
+        .info-text span { color: var(--text-2); }
+
+        .divider {
+            width: 100%;
+            height: 1px;
+            background: var(--border);
+            margin: 12px 0;
+        }
+
+        .info-icon {
+            width: 34px;
+            height: 34px;
+            border-radius: 9px;
+            background: var(--accent-dim);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+            margin-top: 1px;
+        }
+
+        .info-icon::before {
+            content: '';
+            display: block;
+            width: 15px;
+            height: 15px;
+            background-repeat: no-repeat;
+            background-size: contain;
+            background-position: center;
+        }
+
+        .icon-cloud::before {
+            content: '';
+            display: block;
+            width: 15px;
+            height: 15px;
+            background-image: url("data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2024%2024'%20fill='none'%20stroke='%2300ac00'%20stroke-width='1.9'%20stroke-linecap='round'%20stroke-linejoin='round'%3E%3Cpath%20d='M18%2010h-1.26A8%208%200%201%200%209%2020h9a5%205%200%200%200%200-10z'/%3E%3C/svg%3E");
+            background-repeat: no-repeat;
+            background-size: contain;
+            background-position: center;
+        }
+
+        .icon-location::before {
+            content: '';
+            display: block;
+            width: 15px;
+            height: 15px;
+            background-image: url("data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2024%2024'%20fill='none'%20stroke='%2300ac00'%20stroke-width='1.9'%20stroke-linecap='round'%20stroke-linejoin='round'%3E%3Cpath%20d='M21%2010c0%207-9%2013-9%2013s-9-6-9-13a9%209%200%200%201%2018%200z'/%3E%3Ccircle%20cx='12'%20cy='10'%20r='3'/%3E%3C/svg%3E");
+            background-repeat: no-repeat;
+            background-size: contain;
+            background-position: center;
+        }
+
+        .icon-server2::before {
+            content: '';
+            display: block;
+            width: 15px;
+            height: 15px;
+            background-image: url("data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2024%2024'%20fill='none'%20stroke='%2300ac00'%20stroke-width='1.9'%20stroke-linecap='round'%20stroke-linejoin='round'%3E%3Crect%20x='2'%20y='2'%20width='20'%20height='8'%20rx='2'/%3E%3Crect%20x='2'%20y='14'%20width='20'%20height='8'%20rx='2'/%3E%3Cline%20x1='6'%20y1='6'%20x2='6.01'%20y2='6'/%3E%3Cline%20x1='6'%20y1='18'%20x2='6.01'%20y2='18'/%3E%3C/svg%3E");
+            background-repeat: no-repeat;
+            background-size: contain;
+            background-position: center;
+        }
+
+        .icon-mail::before {
+            content: '';
+            display: block;
+            width: 15px;
+            height: 15px;
+            background-image: url("data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2024%2024'%20fill='none'%20stroke='%2300ac00'%20stroke-width='1.9'%20stroke-linecap='round'%20stroke-linejoin='round'%3E%3Cpath%20d='M4%204h16c1.1%200%202%20.9%202%202v12c0%201.1-.9%202-2%202H4c-1.1%200-2-.9-2-2V6c0-1.1.9-2%202-2z'/%3E%3Cpolyline%20points='22,6%2012,13%202,6'/%3E%3C/svg%3E");
+            background-repeat: no-repeat;
+            background-size: contain;
+            background-position: center;
+        }
+
+        @media (prefers-color-scheme: light) {
+            .icon-cloud::before {
+                content: '';
+                display: block;
+                width: 15px;
+                height: 15px;
+                background-image: url("data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2024%2024'%20fill='none'%20stroke='%23006400'%20stroke-width='1.9'%20stroke-linecap='round'%20stroke-linejoin='round'%3E%3Cpath%20d='M18%2010h-1.26A8%208%200%201%200%209%2020h9a5%205%200%200%200%200-10z'/%3E%3C/svg%3E");
+                background-repeat: no-repeat;
+                background-size: contain;
+                background-position: center;
+            }
+
+            .icon-location::before {
+                content: '';
+                display: block;
+                width: 15px;
+                height: 15px;
+                background-image: url("data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2024%2024'%20fill='none'%20stroke='%23006400'%20stroke-width='1.9'%20stroke-linecap='round'%20stroke-linejoin='round'%3E%3Cpath%20d='M21%2010c0%207-9%2013-9%2013s-9-6-9-13a9%209%200%200%201%2018%200z'/%3E%3Ccircle%20cx='12'%20cy='10'%20r='3'/%3E%3C/svg%3E");
+                background-repeat: no-repeat;
+                background-size: contain;
+                background-position: center;
+            }
+
+            .icon-server2::before {
+                content: '';
+                display: block;
+                width: 15px;
+                height: 15px;
+                background-image: url("data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2024%2024'%20fill='none'%20stroke='%23006400'%20stroke-width='1.9'%20stroke-linecap='round'%20stroke-linejoin='round'%3E%3Crect%20x='2'%20y='2'%20width='20'%20height='8'%20rx='2'/%3E%3Crect%20x='2'%20y='14'%20width='20'%20height='8'%20rx='2'/%3E%3Cline%20x1='6'%20y1='6'%20x2='6.01'%20y2='6'/%3E%3Cline%20x1='6'%20y1='18'%20x2='6.01'%20y2='18'/%3E%3C/svg%3E");
+                background-repeat: no-repeat;
+                background-size: contain;
+                background-position: center;
+            }
+
+            .icon-mail::before {
+                content: '';
+                display: block;
+                width: 15px;
+                height: 15px;
+                background-image: url("data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2024%2024'%20fill='none'%20stroke='%23006400'%20stroke-width='1.9'%20stroke-linecap='round'%20stroke-linejoin='round'%3E%3Cpath%20d='M4%204h16c1.1%200%202%20.9%202%202v12c0%201.1-.9%202-2%202H4c-1.1%200-2-.9-2-2V6c0-1.1.9-2%202-2z'/%3E%3Cpolyline%20points='22,6%2012,13%202,6'/%3E%3C/svg%3E");
+                background-repeat: no-repeat;
+                background-size: contain;
+                background-position: center;
+            }
+        }
+
+        :root.theme-light .icon-cloud::before {
+            background-image: url("data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2024%2024'%20fill='none'%20stroke='%23006400'%20stroke-width='1.9'%20stroke-linecap='round'%20stroke-linejoin='round'%3E%3Cpath%20d='M18%2010h-1.26A8%208%200%201%200%209%2020h9a5%205%200%200%200%200-10z'/%3E%3C/svg%3E");
+        }
+
+        :root.theme-light .icon-location::before {
+            background-image: url("data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2024%2024'%20fill='none'%20stroke='%23006400'%20stroke-width='1.9'%20stroke-linecap='round'%20stroke-linejoin='round'%3E%3Cpath%20d='M21%2010c0%207-9%2013-9%2013s-9-6-9-13a9%209%200%200%201%2018%200z'/%3E%3Ccircle%20cx='12'%20cy='10'%20r='3'/%3E%3C/svg%3E");
+        }
+
+        :root.theme-light .icon-server2::before {
+            background-image: url("data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2024%2024'%20fill='none'%20stroke='%23006400'%20stroke-width='1.9'%20stroke-linecap='round'%20stroke-linejoin='round'%3E%3Crect%20x='2'%20y='2'%20width='20'%20height='8'%20rx='2'/%3E%3Crect%20x='2'%20y='14'%20width='20'%20height='8'%20rx='2'/%3E%3Cline%20x1='6'%20y1='6'%20x2='6.01'%20y2='6'/%3E%3Cline%20x1='6'%20y1='18'%20x2='6.01'%20y2='18'/%3E%3C/svg%3E");
+        }
+
+        :root.theme-light .icon-mail::before {
+            background-image: url("data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2024%2024'%20fill='none'%20stroke='%23006400'%20stroke-width='1.9'%20stroke-linecap='round'%20stroke-linejoin='round'%3E%3Cpath%20d='M4%204h16c1.1%200%202%20.9%202%202v12c0%201.1-.9%202-2%202H4c-1.1%200-2-.9-2-2V6c0-1.1.9-2%202-2z'/%3E%3Cpolyline%20points='22,6%2012,13%202,6'/%3E%3C/svg%3E");
+        }
+
+        /* ── Badge ── */
+
+
+        /* ── ZAK spacing ── */
+        #wrap {
+            margin: 2rem auto 2.75rem;
+        }
+
+        /* ── Ball — always green ── */
+        main #wrap .ball {
+            background: #00ac00 !important;
+            color: #fff !important;
+        }
+
+        /* ── Dynamic value styling ── */
+        #page-region,
+        #page-address,
+        #admin-email {
+            color: var(--accent);
+            font-weight: 500;
+        }
+
+        /* ── Site logo ── */
+        .site-logo,
+        img.poweredby-badge {
+            max-height: 100px;
+            height: auto;
+            width: auto;
+        }
+
+        @media (max-width: 570px) {
+
+            .site-logo,
+            img.poweredby-badge {
+                width: 100%;
+                max-height: none;
+            }
+        }
+
+        /* ── Toggle ── */
+
+        #theme-toggle {
+            color: var(--accent);
+        }
+
+        /* ── Links ── */
+        a,
+        a:visited {
+            color: var(--accent) !important;
+            text-decoration: none !important;
+        }
+
+        a:hover,
+        a:focus {
+            color: var(--accent) !important;
+            opacity: 0.8;
+            text-decoration: none !important;
+        }
+
+        /* ── Image hover effects ── */
+        .logo a {
+            opacity: 0.9;
+            transition: opacity 0.2s, transform 0.2s;
+            display: inline-block;
+        }
+
+        .logo a:hover {
+            opacity: 1;
+            transform: scale(1.04);
+        }
+
+        .badge-wrap a {
+            opacity: 0.9;
+            display: inline-block;
+            transition: opacity 0.2s, transform 0.2s;
+        }
+
+        .badge-wrap a:hover {
+            opacity: 1 !important;
+            transform: scale(1.04);
+        }
+
+        :root.theme-light .lf { opacity: var(--op-l, 0.18); }
+        :root.theme-light .lf::before { background: var(--cl, #006400); }
+        :root.theme-dark .lf { opacity: var(--op-d, 0.12); }
+        :root.theme-dark .lf::before { background: var(--cd, #00ac00); }
     </style>
 </head>
 
 <body>
-    <button id="theme-toggle" title="Toggle light/dark mode" aria-label="Toggle light/dark mode">☀</button>
+    <button id="theme-toggle" title="Toggle light/dark mode" aria-label="Toggle light/dark mode">&#9788;</button>
+
     <div class="leaves" contenteditable="false" data-mce-bogus="1">
         <span class="lf lf-a"
             style="left:42%;animation-duration:10.2s;animation-delay:-0.7s;--sz:10px;--op-d:0.09;--op-l:0.2;--cd:#007800;--cl:#00ac00">&#8203;</span>
@@ -813,83 +1252,131 @@
         <span class="lf lf-c"
             style="left:11%;animation-duration:8.8s;animation-delay:-10.9s;--sz:13px;--op-d:0.12;--op-l:0.19;--cd:#006400;--cl:#006400">&#8203;</span>
     </div>
+
     <main>
-        <div class="logo-wrap">
-            <img id="logo" src="https://global.media.stuxedo.com/logo.png" alt="Stuxedo Logo" title="Stuxedo Logo"
-                style="height:60px;">
-            <div class="sclogo-wrap">
-                <span id="bytext">by</span>
-                <img id="sclogo" src="https://media.stux.cloud/global/logo.png" alt="Stux.Cloud Logo" title="Stux.Cloud Logo">
+        <div class="wrapper">
+
+            <div class="logo a2">
+                <a href="https://stux.cloud" target="_blank" rel="noopener" title="Stux.Cloud">
+                    <img class="site-logo" src="https://media.stux.cloud/global/logo.png" alt="Stux.Cloud Logo"
+                        title="Stux.Cloud Logo">
+                </a>
+                <p class="tagline">Powered by Stuxedo</p>
             </div>
-        </div>
-        <div class="text">
-            <h1>Hi I'm</h1>
-            <div style="padding-bottom: 40px;"></div>
-        </div>
-        <div id="wrap">
-            <div class="hand hand-left">
-                <span class='hand-part part-top'></span>
-                <span class='hand-part part-middle'></span>
-                <span class='hand-part part-bottom'></span>
-            </div>
-            <div class="hand hand-right">
-                <span class='hand-part part-top'></span>
-                <span class='hand-part part-middle'></span>
-                <span class='hand-part part-bottom'></span>
-            </div>
-            <div class='line line-1'>
-                <div class="ball">Z</div>
-            </div>
-            <div class='line line-2'>
-                <div class="ball">A</div>
-            </div>
-            <div class='line line-3'>
-                <div class="ball">K</div>
-            </div>
-            <div id="server">
-                <div class="eye eye-left"><span></span></div>
-                <div class="eye eye-right"><span></span></div>
-                <div class="block">
-                    <div class="light"></div>
+
+            <div class="accent-bar a3"></div>
+
+            <h1 class="a4">Hi, I&#8217;m</h1>
+
+            <div id="wrap">
+                <div class="hand hand-left">
+                    <span class='hand-part part-top'></span>
+                    <span class='hand-part part-middle'></span>
+                    <span class='hand-part part-bottom'></span>
                 </div>
-                <div class="block">
-                    <div class="light"></div>
+                <div class="hand hand-right">
+                    <span class='hand-part part-top'></span>
+                    <span class='hand-part part-middle'></span>
+                    <span class='hand-part part-bottom'></span>
                 </div>
-                <div class="block">
-                    <div class="light"></div>
+                <div class='line line-1'>
+                    <div class="ball">Z</div>
                 </div>
-                <div class="block">
-                    <div class="light"></div>
+                <div class='line line-2'>
+                    <div class="ball">A</div>
                 </div>
-                <div class="block">
-                    <div class="light"></div>
+                <div class='line line-3'>
+                    <div class="ball">K</div>
                 </div>
-                <div id="bottom-block">
-                    <div class="bottom-line"></div>
-                    <div id="bottom-light"></div>
+                <div id="server">
+                    <div class="eye eye-left"><span></span></div>
+                    <div class="eye eye-right"><span></span></div>
+                    <div class="block">
+                        <div class="light"></div>
+                    </div>
+                    <div class="block">
+                        <div class="light"></div>
+                    </div>
+                    <div class="block">
+                        <div class="light"></div>
+                    </div>
+                    <div class="block">
+                        <div class="light"></div>
+                    </div>
+                    <div class="block">
+                        <div class="light"></div>
+                    </div>
+                    <div id="bottom-block">
+                        <div class="bottom-line"></div>
+                        <div id="bottom-light"></div>
+                    </div>
                 </div>
             </div>
-        </div>
-        <div class="text">
-            <h1>I exist throughout the entirety of Stuxedo by Stux.Cloud.</h1>
-            <h1>Looks like you found one of my servers.</h1>
-            <h1>Let's see...</h1>
-            <h1>This server is located in the <span id="page-region">unknown</span> region</h1>
-            <h1>The address for this server is</h1>
-            <h1><span id="page-address" style="text-transform: uppercase">unknown</span></h1>
-            <h1>Feel free to contact me at <span id="admin-email">ZAK@Stux.Cloud</span></h1>
+
+            <div class="card a5">
+                <p class="card-label">Let&#8217;s see&hellip;</p>
+                <div class="info-row">
+                    <div class="info-icon icon-cloud" contenteditable="false"></div>
+                    <div class="info-text">
+                        <strong>I
+                            exist throughout the entire Stux.Cloud.</strong>
+                        <span>Looks
+                            like you found one of my servers.</span>
+                    </div>
+                </div>
+                <div class="divider"></div>
+                <div class="info-row">
+                    <div class="info-icon icon-location" contenteditable="false"></div>
+                    <div class="info-text">
+                        <strong>Server
+                            Region</strong>
+                        <span>This
+                            server is located in the <span id="page-region">&mdash;</span> region.</span>
+                    </div>
+                </div>
+                <div class="divider"></div>
+                <div class="info-row">
+                    <div class="info-icon icon-server2" contenteditable="false"></div>
+                    <div class="info-text">
+                        <strong>Server
+                            Address</strong>
+                        <span>This
+                            server has the address: <span id="page-address">&mdash;</span></span>
+                    </div>
+                </div>
+                <div class="divider"></div>
+                <div class="info-row">
+                    <div class="info-icon icon-mail" contenteditable="false"></div>
+                    <div class="info-text">
+                        <strong>Contact</strong>
+                        <span>You
+                            can contact me at: <a href="mailto:ZAK@Stux.Cloud"
+                                id="admin-email">ZAK@Stux.Cloud</a></span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="badge-wrap a6">
+                <a href="https://go.stuxedo.com/powered-by" target="_blank" rel="noopener" title="Powered by Stuxedo">
+                    <img class="poweredby-badge" src="https://global.media.stuxedo.com/badges/rectangle-badge.png" alt="Powered by Stuxedo"
+                        title="Powered by Stuxedo">
+                </a>
+            </div>
+
         </div>
     </main>
+
     <script>
         (function () {
+            var root = document.documentElement;
             var btn = document.getElementById('theme-toggle');
             var prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-            var stored = localStorage.getItem('sc-theme');
+            var stored = localStorage.getItem('stuxedo-theme');
             var isDark = stored ? stored === 'dark' : prefersDark;
 
             function apply(dark) {
-                document.body.classList.toggle('theme-dark', dark);
-                document.body.classList.toggle('theme-light', !dark);
+                root.classList.toggle('theme-dark', dark);
+                root.classList.toggle('theme-light', !dark);
                 btn.textContent = dark ? '☀' : '☾';
                 btn.title = dark ? 'Switch to light mode' : 'Switch to dark mode';
             }
@@ -898,22 +1385,41 @@
 
             btn.addEventListener('click', function () {
                 isDark = !isDark;
-                localStorage.setItem('sc-theme', isDark ? 'dark' : 'light');
+                localStorage.setItem('stuxedo-theme', isDark ? 'dark' : 'light');
                 apply(isDark);
             });
         })();
     </script>
     <script>
-        if (parent !== window) {
-            var $pageaddress = new URL(document.referrer).hostname;
-            var $pageregion = "unknown";
-            if ($pageaddress != "") {
-                const words = $pageaddress.split(".");
-                var word = words[words.length - 3];
-                if (word != undefined) { $pageregion = word; }
-                document.getElementById('page-address').innerHTML = $pageaddress;
+        (function () {
+            if (parent === window) return;
+
+            var regionEl  = document.getElementById('page-region');
+            var addressEl = document.getElementById('page-address');
+            var emailEl   = document.getElementById('admin-email');
+            if (!regionEl || !addressEl || !emailEl) return;
+
+            try {
+                var hostname = new URL(document.referrer).hostname;
+                if (!hostname) return;
+
+                var parts  = hostname.split('.');
+                var region = parts[parts.length - 3];
+                if (region) {
+                    regionEl.textContent = region;
+                }
+
+                addressEl.textContent = hostname;
+
+                var adminEmail = region
+                    ? 'ZAK@' + region + '.stux.cloud'
+                    : 'ZAK@stux.cloud';
+                emailEl.textContent = adminEmail;
+                emailEl.href = 'mailto:' + adminEmail;
+            } catch (e) {
+                /* referrer not a valid URL — leave placeholder text */
             }
-        }
+        })();
     </script>
 </body>
 
