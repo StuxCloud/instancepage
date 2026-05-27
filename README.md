@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="https://media.stux.cloud/global/logo.png" width="200" alt="Stux.Cloud Logo">
+  <img src="https://media.stux.cloud/global/logo.png" height="100" alt="Stux.Cloud Logo">
 </p>
 
 # Instance Page
@@ -46,3 +46,5 @@ This project is open source and available for use and modification.
 ---
 
 Made by [Stux.Cloud](https://github.com/StuxCloud)
+
+*Stux.Cloud is part of the [Stux.Group](https://github.com/StuxGroup) Brand of Companies.*
