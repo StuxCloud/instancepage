@@ -1406,7 +1406,7 @@
                 var parts  = hostname.split('.');
                 var region = parts[parts.length - 3];
                 if (region) {
-                    regionEl.textContent = region;
+                    regionEl.textContent = region.toUpperCase();
                 }
 
                 addressEl.textContent = hostname;
