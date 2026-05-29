@@ -16,7 +16,7 @@ This repository contains a lightweight HTML landing page designed to announce St
 - ⚡ Lightweight and fast-loading
 - 🎨 Ready to customize
 - 📱 Responsive design
-- 🚀 Easy deployment
+- 🚀 Deployed at [instancepage.stux.cloud](https://instancepage.stux.cloud)
 
 ## Getting Started
 
@@ -38,6 +38,8 @@ Edit the HTML files to:
 ## Deployment
 
 This project uses GitHub Pages and can be automatically deployed to your desired domain.
+
+The live version is deployed at [instancepage.stux.cloud](https://instancepage.stux.cloud).
 
 ## License
 
