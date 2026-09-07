@@ -2,6 +2,11 @@
 
 All notable changes to instancepage are documented here.
 
+## v1.0.1
+
+### Added
+- The Stux.Group icon now appears inline next to the "part of the Stux.Group Brand of Companies" line in `README.md`, alongside the existing Stux.Cloud logo
+
 ## v1.0.0
 
 ### Added
