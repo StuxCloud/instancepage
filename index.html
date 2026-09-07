@@ -1186,6 +1186,20 @@
             transform: scale(1.04);
         }
 
+        .site-footer {
+            margin-top: 1.5rem;
+            font-size: 0.75rem;
+        }
+
+        .site-footer a {
+            color: var(--text-3) !important;
+        }
+
+        .site-footer a:hover {
+            color: var(--accent) !important;
+            opacity: 1;
+        }
+
         :root.theme-light .lf { opacity: var(--op-l, 0.18); }
         :root.theme-light .lf::before { background: var(--cl, #006400); }
         :root.theme-dark .lf { opacity: var(--op-d, 0.12); }
@@ -1368,6 +1382,10 @@
                         title="Powered by Stuxedo">
                 </a>
             </div>
+
+            <footer class="site-footer">
+                <a href="https://stux.cloud/legal" target="_blank" rel="noopener">Boring Legal Stuff</a>
+            </footer>
 
         </div>
     </main>

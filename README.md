@@ -25,7 +25,11 @@ This repository contains a lightweight HTML landing page designed to announce St
    git clone https://github.com/StuxCloud/instancepage.git
    ```
 
-2. Open `index.html` in your browser or deploy to your hosting provider
+2. Run it locally:
+   ```bash
+   ./dev-server.sh        # or dev-server.bat on Windows
+   ```
+   Then open the printed `http://127.0.0.1:8000` URL. You can also just open `index.html` directly in your browser, or deploy it to your hosting provider.
 
 ## Customization
 
@@ -41,9 +45,13 @@ This project uses GitHub Pages and can be automatically deployed to your desired
 
 The live version is deployed at [instancepage.stux.cloud](https://instancepage.stux.cloud).
 
+## Contributing
+
+See [CONTRIBUTING.md](CONTRIBUTING.md) for how to get involved, and [CHANGELOG.md](CHANGELOG.md) for release history.
+
 ## License
 
-This project is open source and available for use and modification.
+Copyright (c) 2026 Stux.Group. This project is open source and available for use and modification.
 
 ---
 
