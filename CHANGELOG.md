@@ -2,6 +2,11 @@
 
 All notable changes to instancepage are documented here.
 
+## v1.0.3
+
+### Changed
+- `CONTRIBUTING.md`'s general contact address changed from `contact@stux.cloud` to `hello@stux.cloud`, matching the convention used across other Stux.Group brand repos
+
 ## v1.0.2
 
 ### Changed

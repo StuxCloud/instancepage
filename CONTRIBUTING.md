@@ -28,7 +28,7 @@ Thank you for your interest in contributing! This repository is a small, static 
 
 ## Questions
 
-If you have any questions, feel free to reach out at [contact@stux.cloud](mailto:contact@stux.cloud) or open a discussion in this repository.
+If you have any questions, feel free to reach out at [hello@stux.cloud](mailto:hello@stux.cloud) or open a discussion in this repository.
 
 ---
 
