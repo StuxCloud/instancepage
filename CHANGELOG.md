@@ -2,6 +2,11 @@
 
 All notable changes to instancepage are documented here.
 
+## v1.0.5
+
+### Fixed
+- `README.md`'s and `index.html`'s own Stux.Cloud logo/favicon (separate from the Stux.Group brand icon already fixed in v1.0.4) still pointed at the old `media.stux.cloud/global/logo.png` (and `/icon.png`) host — corrected to `https://global.media.stux.cloud/logo.png` and `/icon.png`
+
 ## v1.0.4
 
 ### Fixed
