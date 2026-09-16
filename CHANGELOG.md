@@ -2,6 +2,11 @@
 
 All notable changes to instancepage are documented here.
 
+## v1.0.7
+
+### Added
+- Stux.Cloud's slogan, "Powering everything, quietly & securely!", added to `README.md`.
+
 ## v1.0.6
 
 ### Fixed

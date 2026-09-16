@@ -4,6 +4,8 @@
 
 # Instance Page
 
+### *Powering everything, quietly & securely!*
+
 A clean and simple instance landing page template for Stux.Cloud projects.
 
 ## Overview
