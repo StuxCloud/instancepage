@@ -2,6 +2,11 @@
 
 All notable changes to instancepage are documented here.
 
+## v1.0.6
+
+### Fixed
+- `README.md`'s License section named `Stux.Group` (a brand, not a legal entity) as the copyright holder — corrected to `Stux Group Ltd`.
+
 ## v1.0.5
 
 ### Fixed
