@@ -2,6 +2,16 @@
 
 All notable changes to instancepage are documented here.
 
+## v1.1.0
+
+### Added
+
+- Self-hosted Exo 2, Barlow and Inter font files under `assets/fonts/`, replacing the Google Fonts CDN link
+- `changelog.html`, which fetches and renders `CHANGELOG.md` at runtime
+- A version indicator in the footer, next to the existing "Boring Legal Stuff" link, fetched live from `VERSION.md`
+- Cross-origin `postMessage` title sync, so a page embedding this one in an iframe can mirror this page's `<title>`
+- A custom `404.html` error page
+
 ## v1.0.7
 
 ### Added

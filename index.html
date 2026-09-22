@@ -7,11 +7,7 @@
     <meta name="description" content="A Stux.Cloud Instance - Powered by Stuxedo">
     <title>A Stux.Cloud Instance - Powered by Stuxedo</title>
     <link rel="icon" type="image/png" href="https://global.media.stux.cloud/icon.png">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link
-        href="https://fonts.googleapis.com/css2?family=Exo+2:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400&family=Barlow:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Inter:wght@300;400;500&display=swap"
-        rel="stylesheet">
+    <link rel="stylesheet" href="assets/fonts/fonts.css">
     <style>
         * {
             box-sizing: border-box;
@@ -1384,6 +1380,8 @@
             </div>
 
             <footer class="site-footer">
+                <a href="changelog" id="version-link">Changelog</a>
+                &middot;
                 <a href="https://stux.cloud/legal" target="_blank" rel="noopener">Boring Legal Stuff</a>
             </footer>
 
@@ -1444,6 +1442,23 @@
                 /* referrer not a valid URL — leave placeholder text */
             }
         })();
+    </script>
+    <script>
+        if (window.parent !== window) {
+            var parentOrigin = document.referrer ? new URL(document.referrer).origin : "*";
+            window.parent.postMessage(
+                { type: "page-title", title: document.title },
+                parentOrigin
+            );
+        }
+    </script>
+    <script>
+        fetch('VERSION.md')
+            .then(function (r) { return r.text(); })
+            .then(function (v) {
+                document.getElementById('version-link').textContent = 'v' + v.trim();
+            })
+            .catch(function () {});
     </script>
 </body>
 

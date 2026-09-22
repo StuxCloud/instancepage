@@ -22,8 +22,9 @@ Thank you for your interest in contributing! This repository is a small, static 
 
 ## Style Guidelines
 
-- Keep it a single static HTML file where possible — no build tooling, no frameworks.
+- Keep `index.html` a single static HTML file where possible — no build tooling, no frameworks. `changelog.html`, `404.html` and `assets/fonts/` are the deliberate exceptions: fonts need real files to self-host, and `changelog.html` fetches and renders `CHANGELOG.md` at runtime rather than duplicating it inline.
 - Match the existing CSS variable naming and light/dark theme structure.
+- General contact uses `hello@stux.cloud`; the legal hub lives externally at `https://stux.cloud/legal`, not in this repo.
 - Test both the light and dark themes, and the embedded (iframe) code path, before submitting.
 
 ## Questions
