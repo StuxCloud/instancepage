@@ -2,6 +2,11 @@
 
 All notable changes to instancepage are documented here.
 
+## v1.1.2
+
+### Fixed
+- The header tagline still read the old "Powered by Stuxedo" line instead of the current org-wide tagline, "Powering everything, quietly & securely", used on the other Stux.Cloud pages (soonpage, maintenancepage). The "Powered by Stuxedo" hosting badge lower on the page is unrelated and unchanged.
+
 ## v1.1.1
 
 ### Fixed
