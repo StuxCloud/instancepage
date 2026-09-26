@@ -2,6 +2,18 @@
 
 All notable changes to instancepage are documented here.
 
+## v1.2.0
+
+### Added
+- A "Boring Legal Stuff" legal hub (`legal.html` + `legal/`: privacy, terms, cookies, imprint, disclaimer, opt-out), matching the Stuxedo instance page
+
+### Changed
+- `changelog.html` now sorts each release's `###` sections into a fixed order — Added, Changed, Fixed, Removed, Security, Deprecated — at render time, rather than trusting the order `CHANGELOG.md` lists them in; unknown section types go last
+- Changelog type badges now use the fixed family palette — Added `#2ecc71`, Changed `#3ba7ff`, Fixed `#ffa64d`, Removed `#ff4d4d`, Security `#b06bff`, Deprecated `#8a8a94` — as tinted badges (coloured text on a light tint of the same hue), with darker variants of each for the light theme
+
+### Fixed
+- The footer's "Boring Legal Stuff" link pointed at `https://stux.cloud/legal`, which returns a 404 — it now opens this page's own legal hub
+
 ## v1.1.3
 
 ### Fixed
