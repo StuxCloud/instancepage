@@ -26,6 +26,7 @@ Thank you for your interest in contributing! This repository is a small, static 
 - Match the existing CSS variable naming and light/dark theme structure.
 - General contact uses `hello@stux.cloud`; the legal hub lives externally at `https://stux.cloud/legal`, not in this repo.
 - Test both the light and dark themes, and the embedded (iframe) code path, before submitting.
+- The sitemap (`sitemap.xml`, `sitemap/index.html`, `robots.txt`) is generated: after adding or removing a page, edit the `PAGES` list in `scripts/build-sitemap.py` and run `python scripts/build-sitemap.py`, then commit the result
 
 ## Questions
 
