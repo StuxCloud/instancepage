@@ -2,6 +2,16 @@
 
 All notable changes to instancepage are documented here.
 
+## v1.3.1
+
+### Changed
+
+- The copyright line reads Stux.Group instead of Stux Group Ltd
+
+### Fixed
+
+- The footer's Created-with icons are optically sized, so the heart no longer looks bigger than the code and coffee icons
+
 ## v1.3.0
 
 ### Added
