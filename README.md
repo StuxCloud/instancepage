@@ -47,6 +47,13 @@ This project uses GitHub Pages and can be automatically deployed to your desired
 
 The live version is deployed at [instancepage.stux.cloud](https://instancepage.stux.cloud).
 
+## Previous designs
+
+This repository always holds the current Stux.Cloud design (v3, single teal `#07878e`). Earlier designs are preserved as their own archived repositories:
+
+- [instancepage-v1](https://github.com/StuxCloud/instancepage-v1): the original blue design, live at [instancepage-v1.stux.cloud](https://instancepage-v1.stux.cloud/)
+- [instancepage-v2](https://github.com/StuxCloud/instancepage-v2): the two-tone green design, live at [instancepage-v2.stux.cloud](https://instancepage-v2.stux.cloud/)
+
 ## Contributing
 
 See [CONTRIBUTING.md](CONTRIBUTING.md) for how to get involved, and [CHANGELOG.md](CHANGELOG.md) for release history.
