@@ -2,6 +2,12 @@
 
 All notable changes to instancepage are documented here.
 
+## v3.0.1
+
+### Fixed
+
+- The light/dark choice was saved in the browser under `stuxedo-theme`, a name left over from the Stuxedo page this one was built from; it's now `stuxcloud-theme` on every page, and the Cookies Policy names it correctly. A theme picked before this update resets to the system setting once
+
 ## v3.0.0
 
 ### Changed
