@@ -4,6 +4,14 @@ All notable changes to instancepage are documented here.
 
 Since v26.10.23 this project uses [Date Versioning](https://datevers.ing) (`YY.MM.DD`, the UTC release date, with `-1`, `-2`… for later releases the same day); earlier releases used Semantic Versioning.
 
+## v26.11.06
+
+### Changed
+
+- `README.md` describes the page as what it is, the landing page on a Stux.Cloud instance, instead of a coming-soon page, and gains a **Tests** section. Its **Local preview** section moved up from below the footer
+- The README footer's Stux.Cloud and Stuxedo icons follow GitHub's light or dark theme (`icon-light`/`icon-dark` from each brand's media CDN) instead of using their GitHub avatars
+- `CONTRIBUTING.md` gains the Stux.Cloud logo, says the legal pages live in this repo (`legal.html` and `legal/`; it said they were external), and its closing note moved to the end
+
 ## v26.10.26
 
 ### Security
