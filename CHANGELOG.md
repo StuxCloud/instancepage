@@ -6,11 +6,17 @@ Since v26.10.23 this project uses [Date Versioning](https://datevers.ing) (`YY.M
 
 ## v26.11.06
 
+### Added
+
+- A `test` branch. Work happens there, and changes reach `main` only through a pull request from `test` that needs CI to pass and is reviewed and merged by Leo. Release commits and tags are made on `test`
+
 ### Changed
 
 - `README.md` describes the page as what it is, the landing page on a Stux.Cloud instance, instead of a coming-soon page, and gains a **Tests** section. Its **Local preview** section moved up from below the footer
 - The README footer's Stux.Cloud and Stuxedo icons follow GitHub's light or dark theme (`icon-light`/`icon-dark` from each brand's media CDN) instead of using their GitHub avatars
 - `CONTRIBUTING.md` gains the Stux.Cloud logo, says the legal pages live in this repo (`legal.html` and `legal/`; it said they were external), and its closing note moved to the end
+- CI runs on pushes to `test` as well as `main`
+- The README's Versioning section and a new **Branches** section in `CONTRIBUTING.md` describe the `test` branch, and `commit.sh`/`commit.bat` suggest pushing to `test`
 
 ## v26.10.26
 
