@@ -1,0 +1,115 @@
+# Deploys wrapper/index.html, the small page each Stuxedo server's Stux.Cloud address serves (for example
+# mixr2.servers.fi.stux.cloud), to all seven servers once CI has passed on a push to main. It frames
+# instancepage.stux.cloud full-screen. Also runs by hand from the Actions tab.
+#
+# Only the commit CI tested is deployed, and only while it is still the tip of main: if main has moved on, this
+# run stops and the newer commit's run deploys instead.
+#
+# Each server has its own deploy key, in the secret DEPLOY_KEY_<SERVER> (for example DEPLOY_KEY_MIXR2). On the
+# server it belongs to the "instances" user and is restricted with rrsync to /var/www/instance-stuxcloud/ (write-only), so
+# the rsync target is ./ and the key can do nothing else. nginx serves it through the symlink
+# /var/www/html/index.fallback.html -> /var/www/instance-stuxcloud/index.html. The host keys below are the servers' ed25519 keys.
+#
+# Adding a server: run the deploy skill's instances-user.sh on it, add the DEPLOY_KEY_<SERVER> secret, and add
+# it to the matrix.
+name: Deploy wrapper
+
+on:
+  workflow_run:
+    workflows: [CI]
+    types: [completed]
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: deploy-wrapper
+  cancel-in-progress: false
+
+jobs:
+  deploy:
+    name: Deploy to ${{ matrix.site }} (${{ matrix.server }})
+    if: >-
+      github.event_name == 'workflow_dispatch' || (
+        github.event.workflow_run.conclusion == 'success' &&
+        github.event.workflow_run.event == 'push'
+      )
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - server: mixr2
+            site: mixr2.servers.fi.stux.cloud
+            host: mixr2.servers.fi.stuxedo.net
+            hostkey: "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIJ/IbdlnonmsjgUpTysNX3/dc+IlEJzTKRrXgih5xLTc"
+          - server: mixr1
+            site: mixr1.servers.es.stux.cloud
+            host: mixr1.servers.es.stuxedo.net
+            hostkey: "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIEL3OtovS61alsdls6bodqof7scHORPE2Z2feIpEeUgQ"
+          - server: tiny1
+            site: tiny1.servers.uk.stux.cloud
+            host: tiny1.servers.uk.stuxedo.net
+            hostkey: "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIIcvZ6CJ4UQ5lbxKPb6Y9sgHPawT5WLNro9rcPVgTdyz"
+          - server: robo1
+            site: robo1.servers.uk.stux.cloud
+            host: robo1.servers.uk.stuxedo.net
+            hostkey: "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIFlWROXP4w3ftn647z/ZrxrCOQrXfMRBvF/BWALg5jcd"
+          - server: kitt1
+            site: kitt1.servers.ca.stux.cloud
+            host: kitt1.servers.ca.stuxedo.net
+            hostkey: "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAICN41AjAVeGJfFyrr6TBXnForc3FGdH+15+PL19Ixe1j"
+          - server: down1
+            site: down1.servers.us.stux.cloud
+            host: down1.servers.us.stuxedo.net
+            hostkey: "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIBCWR+lEJaXxz8azw7QEimb74nboKk5lNL0Zt3Vuk5P4"
+          - server: soci1
+            site: soci1.servers.fr.stux.cloud
+            host: soci1.servers.fr.stuxedo.net
+            hostkey: "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIMruGmec/bPJn0rnPJMqbJFTt2IxuHMaIvFlt0c0W+Q5"
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.event.workflow_run.head_sha || github.sha }}
+
+      - id: tip
+        name: Check this is still the tip of main
+        run: |
+          git fetch -q --depth=1 origin main
+          if [ "$(git rev-parse FETCH_HEAD)" = "$(git rev-parse HEAD)" ]; then
+            echo "deploy=true" >> "$GITHUB_OUTPUT"
+          else
+            echo "::notice::main has moved on since CI tested $(git rev-parse --short HEAD); the newer commit's run deploys instead."
+          fi
+
+      - name: Set up SSH
+        if: steps.tip.outputs.deploy == 'true'
+        env:
+          DEPLOY_KEY: ${{ secrets[format('DEPLOY_KEY_{0}', matrix.server)] }}
+        run: |
+          if [ -z "$DEPLOY_KEY" ]; then
+            echo "::error::The secret DEPLOY_KEY_${{ matrix.server }} isn't set."
+            exit 1
+          fi
+          install -d -m 700 ~/.ssh
+          printf '%s\n' "$DEPLOY_KEY" > ~/.ssh/deploy_key
+          chmod 600 ~/.ssh/deploy_key
+          printf '%s %s\n' "${{ matrix.host }}" "${{ matrix.hostkey }}" > ~/.ssh/known_hosts
+
+      - name: Copy the wrapper to ${{ matrix.host }}
+        if: steps.tip.outputs.deploy == 'true'
+        run: |
+          rsync -rlt --checksum --chmod=D755,F644 --itemize-changes \
+            -e "ssh -i ~/.ssh/deploy_key -o BatchMode=yes -o StrictHostKeyChecking=yes" \
+            wrapper/ "instances@${{ matrix.host }}:./"
+
+      - name: Check https://${{ matrix.site }}/ serves it
+        if: steps.tip.outputs.deploy == 'true'
+        run: |
+          curl -fsS --retry 3 --retry-delay 5 -H 'Cache-Control: no-cache' "https://${{ matrix.site }}/?deploy=${GITHUB_RUN_ID}" > served.html
+          grep -q 'https://instancepage.stux.cloud' served.html || { echo "::error::${{ matrix.site }} doesn't frame instancepage.stux.cloud"; exit 1; }
+          cmp -s <(tr -d '\015' < served.html) <(tr -d '\015' < wrapper/index.html) || { echo "::error::${{ matrix.site }} serves a different wrapper"; exit 1; }
+          echo "${{ matrix.site }} serves this wrapper."

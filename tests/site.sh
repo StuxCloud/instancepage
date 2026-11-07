@@ -33,7 +33,7 @@ def png_info(p):
     return w, h, ctype
 
 
-SKIP = ("node_modules", ".dev", ".git", "_site")
+SKIP = ("node_modules", ".dev", ".git", "_site", "wrapper")
 pages = sorted(p for p in root.rglob("*.html") if not any(s in p.relative_to(root).parts for s in SKIP))
 rel = lambda p: p.relative_to(root).as_posix()
 

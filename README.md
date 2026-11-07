@@ -41,6 +41,13 @@ Edit the HTML files to:
 - Customize colors and styling
 - Add links to the services the instance runs
 
+## The wrapper
+
+[`wrapper/index.html`](wrapper/index.html) is the small page each Stuxedo server's Stux.Cloud address serves (for
+example [mixr2.servers.fi.stux.cloud](https://mixr2.servers.fi.stux.cloud)). It frames `https://instancepage.stux.cloud`
+full-screen. The **Deploy wrapper** workflow (`.github/workflows/deploy-wrapper.yml`) copies it to every server once CI
+passes on `main`, then checks each address serves it. It's a deployment artefact: it isn't part of the Pages site.
+
 ## Deployment
 
 This project uses GitHub Pages and can be automatically deployed to your desired domain.
