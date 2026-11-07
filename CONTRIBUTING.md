@@ -27,6 +27,7 @@ Thank you for your interest in contributing! This repository is a small, static 
 ## Style Guidelines
 
 - Keep `index.html` a single static HTML file where possible — no build tooling, no frameworks. `changelog.html`, `404.html` and `assets/fonts/` are the deliberate exceptions: fonts need real files to self-host, and `changelog.html` fetches and renders `CHANGELOG.md` at runtime rather than duplicating it inline.
+- `wrapper/index.html` is served unchanged by every server's Stux.Cloud address (`<server>.servers.<cc>.stux.cloud`), so don't add per-server settings to it. Merging a change to `main` deploys it to every server (the **Deploy wrapper** workflow); it stays out of the Pages site and the site tests.
 - Match the existing CSS variable naming and light/dark theme structure.
 - General contact uses `hello@stux.cloud`; legal-page contact uses `legal@stux.cloud`. The Boring Legal Stuff hub is `legal.html`, with its six pages in `legal/`.
 - Test both the light and dark themes, and the embedded (iframe) code path, before submitting.

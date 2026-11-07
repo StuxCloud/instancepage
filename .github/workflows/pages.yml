@@ -28,8 +28,13 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - uses: actions/configure-pages@v5
+      # wrapper/ is a deployment artefact (copied to each server's own address), not part of this site.
+      - name: Assemble site
+        run: |
+          mkdir _site
+          rsync -a --exclude '.git' --exclude '.github' --exclude '.dev' --exclude '_site' --exclude 'wrapper' ./ _site/
       - uses: actions/upload-pages-artifact@v3
         with:
-          path: .
+          path: _site
       - id: deployment
         uses: actions/deploy-pages@v4

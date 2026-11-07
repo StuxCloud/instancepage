@@ -4,6 +4,16 @@ All notable changes to instancepage are documented here.
 
 Since v26.10.23 this project uses [Date Versioning](https://datevers.ing) (`YY.MM.DD`, the UTC release date, with `-1`, `-2`… for later releases the same day); earlier releases used Semantic Versioning.
 
+## v26.11.07
+
+### Added
+
+- **The wrapper is in the repo and deploys itself.** `wrapper/index.html` is the small page each Stuxedo server's Stux.Cloud address serves (for example mixr2.servers.fi.stux.cloud); it frames instancepage.stux.cloud full-screen. The new **Deploy wrapper** workflow copies it to all seven servers once CI passes on a push to `main`, then checks each address serves it. It deploys only the commit CI tested, and only while that's still the tip of `main`. Each server has its own deploy key, restricted on the server to writing into `/var/www/instance-stuxcloud` (served through the symlink `/var/www/html/index.fallback.html`), and its host key is pinned. Before, the wrapper was only copied by hand when a server was set up
+
+### Changed
+
+- The GitHub Pages deploy leaves `wrapper/` out of the site, and the site tests skip it
+
 ## v26.11.06
 
 ### Added
