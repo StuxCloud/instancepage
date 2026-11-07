@@ -1,3 +1,7 @@
+<p align="center">
+  <picture><source media="(prefers-color-scheme: dark)" srcset="https://global.media.stux.cloud/logo-light.png"><source media="(prefers-color-scheme: light)" srcset="https://global.media.stux.cloud/logo-dark.png"><img src="https://global.media.stux.cloud/logo-dark.png" height="80" alt="Stux.Cloud Logo"></picture>
+</p>
+
 # Contributing to instancepage
 
 Thank you for your interest in contributing! This repository is a small, static instance-landing-page template, so contributions are usually small too.
@@ -24,7 +28,7 @@ Thank you for your interest in contributing! This repository is a small, static 
 
 - Keep `index.html` a single static HTML file where possible — no build tooling, no frameworks. `changelog.html`, `404.html` and `assets/fonts/` are the deliberate exceptions: fonts need real files to self-host, and `changelog.html` fetches and renders `CHANGELOG.md` at runtime rather than duplicating it inline.
 - Match the existing CSS variable naming and light/dark theme structure.
-- General contact uses `hello@stux.cloud`; the legal hub lives externally at `https://stux.cloud/legal`, not in this repo.
+- General contact uses `hello@stux.cloud`; legal-page contact uses `legal@stux.cloud`. The Boring Legal Stuff hub is `legal.html`, with its six pages in `legal/`.
 - Test both the light and dark themes, and the embedded (iframe) code path, before submitting.
 - The sitemap (`sitemap.xml`, `sitemap/index.html`, `robots.txt`) is generated: after adding or removing a page, edit the `PAGES` list in `scripts/build-sitemap.py` and run `python scripts/build-sitemap.py`, then commit the result
 
@@ -32,9 +36,11 @@ Thank you for your interest in contributing! This repository is a small, static 
 
 If you have any questions, feel free to reach out at [hello@stux.cloud](mailto:hello@stux.cloud) or open a discussion in this repository.
 
----
+## Branches
 
-*Stux.Cloud is part of the [Stux.Group](https://github.com/StuxGroup) Brand of Companies.*
+- Work on `test`, or on a feature branch off it. Never push to `main`
+- Changes reach `main` only through a pull request from `test` into `main`, which needs CI to pass and is reviewed and merged by Leo
+- Merging into `main` deploys the site to GitHub Pages; release commits and tags are made on `test` (`git push origin test --tags`) and go live when the pull request is merged
 
 ## Versioning
 
@@ -44,3 +50,8 @@ This project uses [Date Versioning](https://datevers.ing). To release:
 2. Set `VERSION.md` to the same bare version (no `v`): today's **UTC** date as `YY.MM.DD`, or `YY.MM.DD-1`, `-2`… for later releases the same UTC day. Never a future date. Use UTC, not local time: just after midnight in the UK it is still the previous day in UTC.
 3. Run `bash tests/version.sh` and `bash tests/site.sh`.
 4. Run `./commit.sh` (or `commit.bat` on Windows). It checks the version, commits and tags `vYY.MM.DD`, and never pushes.
+5. Push `test` with its tag (`git push origin test --tags`) and open a pull request from `test` into `main`.
+
+---
+
+*Stux.Cloud is a part of the [Stux.Group](https://github.com/StuxGroup) brand of businesses.*
