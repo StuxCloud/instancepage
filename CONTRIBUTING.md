@@ -9,7 +9,7 @@ Thank you for your interest in contributing! This repository is a small, static 
 ## Getting Started
 
 1. **Fork the repository** and clone your fork locally.
-2. **Run it locally** with `./dev-server.sh` (or `dev-server.bat` on Windows) and open the printed URL.
+2. **Run it locally** with `./dev-server.sh` (or `dev-server.bat` on Windows) and open the printed URL. Add `--lan` to open it from a phone or another device on your network too.
 3. **Make your changes** to `index.html` — it's a single self-contained file, no build step required.
 4. **Submit a pull request** with a clear description of what you've changed and why.
 
