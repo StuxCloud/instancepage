@@ -4,6 +4,12 @@ All notable changes to instancepage are documented here.
 
 Since v26.10.23 this project uses [Date Versioning](https://datevers.ing) (`YY.MM.DD`, the UTC release date, with `-1`, `-2`… for later releases the same day); earlier releases used Semantic Versioning.
 
+## v26.11.17
+
+### Added
+
+- **RUNN1 (Germany) gets the wrapper too.** The Deploy wrapper workflow now also copies `wrapper/index.html` to RUNN1, the new server in Germany, and checks `https://runn1.servers.de.stux.cloud/` serves it. RUNN1 has its own deploy key (`DEPLOY_KEY_RUNN1`), which can only write into its Stux.Cloud wrapper folder.
+
 ## v26.11.15-1
 
 ### Added
